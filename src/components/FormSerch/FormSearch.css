@@ -1,0 +1,26 @@
+.container_FormSearch {
+    position: fixed;
+    top: 6.5em;
+    right: 2.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.btn_search{
+    display: flex;
+    justify-content: center;
+    padding: 0.2em;
+    width: 30%;
+    background-color: #2fbf71;
+    border: none;
+    border-radius: 0.5em;
+    margin-top: 0.15em;
+    cursor: pointer;
+    transform: scale(1);
+}
+
+.btn_search:hover {
+    transform: scale(1.1);
+}

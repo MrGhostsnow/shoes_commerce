@@ -3,11 +3,19 @@ import './Card.css'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import Modal from '../Modal/Modal'
 import ModalContent from '../ModalContent/ModalContent';
+import FormCreate from '../FormCreate/FormCreate';
+import FormSearch from '../FormSerch/FormSearch';
+
+
 
 
 function Card() {
   const [shoesList, setShoesList] = useState([]);
   const [modalopen, setModalOpen] = useState(false)
+  const [formCreate, setFormCreate] = useState(false)
+  const [shoe, setShoe] = useState({
+    shoe_id:''
+  })
 
   const baseURL = "http://localhost:3001/shoes";
 
@@ -16,7 +24,12 @@ function Card() {
     const shoes = await response.json();
     setShoesList(shoes);
   }
-  console.log(shoesList)
+  
+  async function findById(id) {
+    const response = await fetch(`${baseURL}/${id}`);
+    const shoe = await response.json();
+    setShoesList([shoe]);
+  }
 
   useEffect(() => {
     findAllShoes();
@@ -36,8 +49,6 @@ function Card() {
   }
 
 
-  console.log(current)
-
   if(!Array.isArray(shoesList) || length <=0){
     return null
   }
@@ -45,12 +56,37 @@ function Card() {
   const openModal = () => {
     setModalOpen(true)
   }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
  
+
+  const handleChange = (e) => {
+    console.log(shoe)
+    setShoe({ ...shoe, [e.target.name]: e.target.value });
+  };
+
+  const handleClick = (e) => {
+    console.log(shoe.shoe_id)
+    findById(shoe.shoe_id);
+    setShoe({
+      shoe_id: "",
+    });
+  };
 
 
   return (
     <div className='container_Card'>
-         
+      {formCreate ? (
+      <Modal>
+        <FormCreate/>
+      </Modal>
+): null}
+      <FormSearch
+      onChange={handleChange}
+      value={shoe.shoe_id}
+      onClick={handleClick}/>
                 
                 
       <FaArrowAltCircleLeft className='left-Arrow' onClick={prevSlide}/>
@@ -68,7 +104,7 @@ function Card() {
                     </div>
                   </div>
                   {modalopen ? (
-                  <Modal>
+                  <Modal closeModal={closeModal}>
                     <ModalContent
                     img={image}
                     name={name}

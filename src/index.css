@@ -3,30 +3,6 @@
   padding: 0;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: 300% 300%;
-  background-image: linear-gradient(
-        -45deg, 
-        #11151c 0%, 
-        #212d40 25%, 
-        #364156 51%, 
-        #2fbf71 100%
-  );  
-  animation: AnimateBG 20s ease infinite;
-}
+/* body { */
+  
 
-@keyframes AnimateBG { 
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
