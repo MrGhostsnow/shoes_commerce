@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import './Card.css'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import Modal from '../Modal/Modal'
+import ModalContent from '../ModalContent/ModalContent';
 
 
 function Card() {
   const [shoesList, setShoesList] = useState([]);
+  const [modalopen, setModalOpen] = useState(false)
 
   const baseURL = "http://localhost:3001/shoes";
 
@@ -24,10 +27,12 @@ function Card() {
 
   const nexSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1)
+    setModalOpen(false)
   };
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1)
+    setModalOpen(false)
   }
 
 
@@ -37,30 +42,42 @@ function Card() {
     return null
   }
 
+  const openModal = () => {
+    setModalOpen(true)
+  }
  
 
 
   return (
     <div className='container_Card'>
+         
+                
+                
       <FaArrowAltCircleLeft className='left-Arrow' onClick={prevSlide}/>
       <FaArrowAltCircleRight className='right-Arrow' onClick={nexSlide}/>
             {shoesList.map((shoe, index) => {
               const {id, name, description, image, price} = shoe;
+           
               return(
                 <div className={index === current ? 'slide active' : 'slide'}>
                   { index === current && (
-                  <div className='card_Shoes'>
+                  <div className='card_Shoes' onClick={openModal}>
                   <div className='item' key={id}>
                     <div className='image'>
                       <img src={image} alt={name}/>
                     </div>
-                    <div className='info'>
-                      <span className='name'>{name}</span>
-                      <span className='description'>{description}</span>
-                      <span className='price'>U$ {price}</span>
-                    </div>
                   </div>
+                  {modalopen ? (
+                  <Modal>
+                    <ModalContent
+                    img={image}
+                    name={name}
+                    description={description}
+                    price={price}/>
+                  </Modal>
+                  ): null }
                   </div>
+                  
             )}
                 </div>
               )
