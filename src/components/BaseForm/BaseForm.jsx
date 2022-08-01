@@ -1,5 +1,3 @@
-import "./BaseForm.css";
-
 function BaseForm(props) {
   return (
     <div className={props.className}>
