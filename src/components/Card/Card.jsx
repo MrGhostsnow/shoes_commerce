@@ -9,6 +9,7 @@ import ModalContent from '../ModalContent/ModalContent';
 import FormCreate from '../FormCreate/FormCreate';
 import FormSearch from '../FormSerch/FormSearch';
 import BaseButton from '../BaseButton/BaseButton';
+import { ShoesService } from '../service/ShoesService'
 
 
 
@@ -37,17 +38,13 @@ const [updateShoes, setUpdateShoes] = useState({
 })
   
 
-  const baseURL = "http://localhost:3001/shoes";
-
   async function findAllShoes() {
-    const response = await fetch(baseURL);
-    const shoes = await response.json();
+    const shoes = await ShoesService.getList();
     setShoesList(shoes);
   }
   
   async function findById(id) {
-    const response = await fetch(`${baseURL}/${id}`);
-    const shoe = await response.json();
+    const shoe = await ShoesService.getById(id);
     setShoesList([shoe]);
     console.log(shoe)
   }
@@ -56,39 +53,17 @@ const [updateShoes, setUpdateShoes] = useState({
     findAllShoes();
   }, [newShoes, updateShoes]);
 
-  async function create(shoe) {
-    const response = await fetch(baseURL, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      body: JSON.stringify(shoe),
-    });
-    const newShoe = await response.json();
-    setShoesList([newShoe]);
+  async function create(shoes) {
+    const newShoes = await ShoesService(shoes);
+    setShoesList([newShoes]);
   }
 
   async function editShoes(id, edited_shoes) {
-    const response = await fetch(`${baseURL}/${id}`, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      body: JSON.stringify(edited_shoes),
-    });
-    const shoes_edited = await response.json();
+    const shoes_edited = await ShoesService.updateById(id, edited_shoes);
     setShoesList({ ...shoes_edited });
   }
   async function deleteShoes(id) {
-    const response = await fetch(`${baseURL}/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const shoes_deleted = await response.json();
+    const shoes_deleted = await ShoesService.deleteById(id);
     setShoesList({ ...shoes_deleted });
   }
 
@@ -129,7 +104,6 @@ const [updateShoes, setUpdateShoes] = useState({
 
   const closeModalEdit = () => {
     setShowEdit(false)
-    window.location.reload(true);
   }
 
 
@@ -167,6 +141,7 @@ const [updateShoes, setUpdateShoes] = useState({
       price: "",
       name: "",
     }); 
+    setFormCreate(false)
   };
 
   const handleClickEdit = (e) => {
@@ -188,12 +163,13 @@ const [updateShoes, setUpdateShoes] = useState({
     delete shoes_edited.id;
     setShowEdit(false);
     editShoes(id, shoes_edited);
-    window.location.reload(true);
+    console.log(shoes_edited)
+    // window.location.reload(true);
   };
 
   const handleDeleteShoes = (e) => {
     console.log(e.target.id)
-    deleteShoes(e.target.id);
+    // deleteShoes(e.target.id);
     // window.location.reload(true);
   };
 
@@ -260,7 +236,8 @@ const [updateShoes, setUpdateShoes] = useState({
                     </div>
                   </div>
                   {modalopen ? (
-                  <Modal closeModal={closeModal}>
+                  <Modal
+                   closeModal={closeModal}>
                     <div className='containerBtn'>
                         <BaseButton
                         id={shoe.id}
