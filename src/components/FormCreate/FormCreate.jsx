@@ -3,39 +3,47 @@ import './FormCreate.css'
 
 function FormCreate(props) {
   return (
-    <div className='container_Form_Create'>
+    <div className='containerFormCreate'>
         <BaseForm
+        className='formCreate'
         id='create_name'
-        label='Name'
+        label='Name:'
         type='text'
         onChange={props.onChange}
         name='name'
-        value={props.name_value}/>
-         <BaseForm
+        value={props.name_value}
+        required/>
+        <BaseForm
+        className='formCreate'
         id='create_image'
-        label='Image'
+        label='Image:'
         type='text'
         onChange={props.onChange}
         name='image'
-        value={props.image_value}/>
+        value={props.image_value}
+        required/>
          <BaseForm
+         className='formCreate'
         id='create_description'
-        label='Description'
+        label='Description:'
         type='text'
         onChange={props.onChange}
         name='description'
-        value={props.description_value}/>
+        value={props.description_value}
+        required/>
          <BaseForm
+         className='formCreate'
         id='create_price'
-        label='Price'
+        label='Price:'
         type='text'
         onChange={props.onChange}
         name='price'
-        value={props.price_value}/>
+        value={props.price_value}
+        required/>
         <button type="button" 
                 className={props.className}
                 onClick={props.onClick}>
-                    Create
+                   {props.label}
         </button>
     </div>
   )

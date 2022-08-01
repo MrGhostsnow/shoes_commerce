@@ -28,6 +28,8 @@
 
 .description {
     font-family: 'Kanit', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
 .container_Price {
