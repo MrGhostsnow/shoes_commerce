@@ -15,19 +15,19 @@ export const ShoesService = {
         "Content-Type": "application/json",
       },
       mode: "cors",
-      body: JSON.stringify(),
+      body: JSON.stringify(shoes),
     }).then(parseResponse),
 
-  updateById: (id) =>
-    fetch(Api.FindById(), {
+  updateById: (id, edited_shoes) =>
+    fetch(Api.shoesById(id), {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       mode: "cors",
-      body: JSON.stringify(),
+      body: JSON.stringify(edited_shoes),
     }).then(parseResponse),
 
   deleteById: (id) =>
-    fetch(Api.FindByById(), { method: "DELETE" }.then(parseResponse)),
+    fetch(Api.shoesById(id), { method: "DELETE" }).then(parseResponse),
 };

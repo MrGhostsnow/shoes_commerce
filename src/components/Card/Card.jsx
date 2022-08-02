@@ -111,6 +111,7 @@ function Card() {
   };
 
   const handleClick = (e) => {
+    console.log(shoe.shoe_id)
     findById(shoe.shoe_id);
     setBackHome(true);
     // setShoe({
@@ -135,11 +136,11 @@ function Card() {
     setFormCreate(false);
   };
 
-  const handleClickEdit = (e) => {
+  const handleClickEdit = (id) => {
     setShowEdit(true);
     setModalOpen(false);
-    setUpdateShoes({ ...updateShoes, id: e.target.id });
-    findById(e.target.id);
+    setUpdateShoes({ ...updateShoes, id: id });
+    findById(id);
   };
 
   const handleChangeEdit = (e) => {
@@ -154,14 +155,14 @@ function Card() {
     delete shoes_edited.id;
     setShowEdit(false);
     editShoes(id, shoes_edited);
-    console.log(shoes_edited);
+    console.log(updateShoes);
     // window.location.reload(true);
   };
 
-  const handleDeleteShoes = (e) => {
-    console.log(e.target.id);
-    // deleteShoes(e.target.id);
-    // window.location.reload(true);
+  const handleDeleteShoes = (id) => {
+    console.log(id);
+    deleteShoes(id);
+    window.location.reload(true);
   };
 
   return (
@@ -228,18 +229,18 @@ function Card() {
                   <Modal closeModal={closeModal}>
                     <div className="containerBtn">
                       <BaseButton
-                        id={shoe.id}
+                        value={id}
                         type="button"
                         className="btnEdit"
                         label={<AiFillEdit />}
-                        onClick={handleClickEdit}
+                        onClick={() => handleClickEdit(id)}
                       />
                       <BaseButton
-                        id={shoe.id}
+                        value={id}
                         type="button"
                         className="btnDelete"
                         label={<AiFillDelete />}
-                        onClick={handleDeleteShoes}
+                        onClick={() => handleDeleteShoes(id)}
                       />
                     </div>
                     <ModalContent

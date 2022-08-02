@@ -1,7 +1,7 @@
 function BaseButton(props) {
   return (
     <button
-      id={props.id}
+      value={props.value}
       type={props.type}
       className={props.className}
       onClick={props.onClick}
