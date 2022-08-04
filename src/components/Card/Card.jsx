@@ -120,22 +120,22 @@ function Card() {
     // });
   };
 
-  const handleChangeCreate = (e) => {
-    setNewShoes({ ...newShoes, [e.target.name]: e.target.value });
-    console.log(newShoes);
-  };
+  // const handleChangeCreate = (e) => {
+  //   setNewShoes({ ...newShoes, [e.target.name]: e.target.value });
+  //   console.log(newShoes);
+  // };
 
-  const handleCreateShoes = () => {
-    const shoes_create = { ...newShoes };
-    create(shoes_create);
-    setNewShoes({
-      description: "",
-      image: "",
-      price: "",
-      name: "",
-    });
-    setFormCreate(false);
-  };
+  // const handleCreateShoes = () => {
+  //   const shoes_create = { ...newShoes };
+  //   create(shoes_create);
+  //   setNewShoes({
+  //     description: "",
+  //     image: "",
+  //     price: "",
+  //     name: "",
+  //   });
+  //   setFormCreate(false);
+  // };
 
   const handleClickEdit = (id) => {
     setShowEdit(true);
@@ -182,7 +182,7 @@ function Card() {
           />
         </Modal>
       ) : null} */}
-      {showEdit ? (
+      {/* {showEdit ? (
         <Modal closeModal={closeModalEdit}>
           <FormCreate
             onChange={handleChangeEdit}
@@ -195,7 +195,7 @@ function Card() {
             className="btnCreate"
           />
         </Modal>
-      ) : null}
+      ) : null} */}
       <Link className="btn_Modal_Create"
       to={'/create'} >
         <GoPlus />
@@ -220,40 +220,17 @@ function Card() {
         return (
           <div className={index === current ? "slide active" : "slide"}>
             {index === current && (
-              <div className="card_Shoes" onClick={openModal}>
-                <div className="item" key={id}>
-                  <span>{id}</span>
-                  <div className="image">
-                    <img src={image} alt={name} />
+              <Link 
+              to={`/details/${id}`}>
+                <div className="card_Shoes">
+                  <div className="item" key={id}>
+                    <span>{id}</span>
+                    <div className="image">
+                      <img src={image} alt={name} />
+                    </div>
                   </div>
                 </div>
-                {modalopen ? (
-                  <Modal closeModal={closeModal}>
-                    <div className="containerBtn">
-                      <BaseButton
-                        value={id}
-                        type="button"
-                        className="btnEdit"
-                        label={<AiFillEdit />}
-                        onClick={() => handleClickEdit(id)}
-                      />
-                      <BaseButton
-                        value={id}
-                        type="button"
-                        className="btnDelete"
-                        label={<AiFillDelete />}
-                        onClick={() => handleDeleteShoes(id)}
-                      />
-                    </div>
-                    <ModalContent
-                      img={image}
-                      name={name}
-                      description={description}
-                      price={price}
-                    />
-                  </Modal>
-                ) : null}
-              </div>
+              </Link>
             )}
           </div>
         );
