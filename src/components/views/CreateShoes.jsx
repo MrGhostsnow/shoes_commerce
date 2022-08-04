@@ -15,8 +15,8 @@ function CreateShoes() {
       const navigate = useNavigate()
 
       async function create(shoes) {
-        const newShoes = await ShoesService(shoes);
-        // setShoesList([newShoes]);
+        const newShoes = await ShoesService.create(shoes);
+        // setNewShoes([newShoes]);
       }
 
 
