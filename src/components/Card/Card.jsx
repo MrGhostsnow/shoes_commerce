@@ -10,6 +10,7 @@ import FormCreate from "../FormCreate/FormCreate";
 import FormSearch from "../FormSerch/FormSearch";
 import BaseButton from "../BaseButton/BaseButton";
 import { ShoesService } from "../service/ShoesService";
+import {Link} from 'react-router-dom'
 
 function Card() {
   const [shoesList, setShoesList] = useState([]);
@@ -167,7 +168,7 @@ function Card() {
 
   return (
     <div className="container_Card">
-      {formCreate ? (
+      {/* {formCreate ? (
         <Modal closeModal={closeModalCreate}>
           <FormCreate
             onChange={handleChangeCreate}
@@ -180,7 +181,7 @@ function Card() {
             className="btnCreate"
           />
         </Modal>
-      ) : null}
+      ) : null} */}
       {showEdit ? (
         <Modal closeModal={closeModalEdit}>
           <FormCreate
@@ -195,9 +196,10 @@ function Card() {
           />
         </Modal>
       ) : null}
-      <div className="btn_Modal_Create" onClick={openModalCreate}>
+      <Link className="btn_Modal_Create"
+      to={'/create'} >
         <GoPlus />
-      </div>
+      </Link>
       <FormSearch
         onChange={handleChange}
         value={shoe.shoe_id}
