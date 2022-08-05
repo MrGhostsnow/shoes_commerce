@@ -16,7 +16,7 @@ function DetailsShoes() {
     const params = useParams()
     const {id} = params
 
-    console.log("id",params)
+    // console.log("id",params)
 
 
     async function findById(id) {
@@ -40,10 +40,11 @@ function DetailsShoes() {
         name: "",
       });
 
-      const handleClickEdit = (id) => {
+      const handleClickEdit = () => {
         setShowEdit(true);
         setUpdateShoes({ ...updateShoes });
-        findById(id);
+        console.log(updateShoes)
+        // findById(id);
       };
 
       const handleChangeEdit = (e) => {
@@ -53,17 +54,16 @@ function DetailsShoes() {
 
       async function editShoes(id, edited_shoes) {
         const shoes_edited = await ShoesService.updateById(id, edited_shoes);
-        // setShoesList({ ...shoes_edited });
       }
+      
 
       const handleEditShoes = () => {
         const shoes_edited = { ...updateShoes };
         const id = shoes_edited.id;
-    
         delete shoes_edited.id;
         setShowEdit(false);
-        editShoes(id, shoes_edited);
-        // console.log(updateShoes);
+        editShoes(shoes.id, shoes_edited);
+        console.log(updateShoes);
         navigate('/')
       };
 
