@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Link, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Modal from "../Modal/Modal";
 import ModalContent from "../ModalContent/ModalContent";
 import BaseButton from "../BaseButton/BaseButton";
@@ -8,7 +8,7 @@ import { ShoesService } from "../service/ShoesService"
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 function DetailsShoes() {
-    const {shoes, setShoes} = useState({})
+    const [shoes, setShoes] = useState({})
     const closeModalEdit = () => {
         setShowEdit(false);
       };
@@ -18,10 +18,10 @@ function DetailsShoes() {
 
     console.log("id",params)
 
+
     async function findById(id) {
         const shoe = await ShoesService.getById(id);
         setShoes({...shoe});
-        console.log("shoe",shoe);
       }
 
       useEffect(()=>{
@@ -78,12 +78,14 @@ function DetailsShoes() {
         navigate('/');
       };
 
-      console.log(shoes)
+      const handleBackHome = () => {
+        navigate('/')
+      }
 
   return (
     <div>
         
-        <Modal>
+        <Modal closeModal={handleBackHome}>
                     <div className="containerBtn">
                       <BaseButton
                         value={id}

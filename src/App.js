@@ -13,11 +13,12 @@ function App() {
           path="/"
           element={<Card/>}/>
           <Route
-          path="/create"
-          element={<CreateShoes/>}/>
-          <Route
           path="/details/:id"
           element={<DetailsShoes/>}/>
+          <Route
+          path="/create"
+          element={<CreateShoes/>}/>
+          
       </Routes>
     </div>
   );

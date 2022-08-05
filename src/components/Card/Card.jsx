@@ -15,8 +15,8 @@ import {Link} from 'react-router-dom'
 function Card() {
   const [shoesList, setShoesList] = useState([]);
   const [modalopen, setModalOpen] = useState(false);
-  const [formCreate, setFormCreate] = useState(false);
-  const [showEdit, setShowEdit] = useState(false);
+  // const [formCreate, setFormCreate] = useState(false);
+  // const [showEdit, setShowEdit] = useState(false);
   const [shoe, setShoe] = useState({
     shoe_id: "",
   });
@@ -27,13 +27,13 @@ function Card() {
     price: "",
     name: "",
   });
-  const [updateShoes, setUpdateShoes] = useState({
-    id: "",
-    description: "",
-    image: "",
-    price: "",
-    name: "",
-  });
+  // const [updateShoes, setUpdateShoes] = useState({
+  //   id: "",
+  //   description: "",
+  //   image: "",
+  //   price: "",
+  //   name: "",
+  // });
 
   async function findAllShoes() {
     const shoes = await ShoesService.getList();
@@ -48,21 +48,21 @@ function Card() {
 
   useEffect(() => {
     findAllShoes();
-  }, [newShoes, updateShoes]);
+  }, []);
 
-  async function create(shoes) {
-    const newShoes = await ShoesService(shoes);
-    setShoesList([newShoes]);
-  }
+  // async function create(shoes) {
+  //   const newShoes = await ShoesService(shoes);
+  //   setShoesList([newShoes]);
+  // }
 
-  async function editShoes(id, edited_shoes) {
-    const shoes_edited = await ShoesService.updateById(id, edited_shoes);
-    setShoesList({ ...shoes_edited });
-  }
-  async function deleteShoes(id) {
-    const shoes_deleted = await ShoesService.deleteById(id);
-    setShoesList({ ...shoes_deleted });
-  }
+  // async function editShoes(id, edited_shoes) {
+  //   const shoes_edited = await ShoesService.updateById(id, edited_shoes);
+  //   setShoesList({ ...shoes_edited });
+  // }
+  // async function deleteShoes(id) {
+  //   const shoes_deleted = await ShoesService.deleteById(id);
+  //   setShoesList({ ...shoes_deleted });
+  // }
 
   const [current, setCurrent] = useState(0);
   const length = shoesList.length;
@@ -81,25 +81,25 @@ function Card() {
     return null;
   }
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setModalOpen(false);
+  // };
 
-  const openModalCreate = () => {
-    setFormCreate(true);
-  };
+  // const openModalCreate = () => {
+  //   setFormCreate(true);
+  // };
 
-  const closeModalCreate = () => {
-    setFormCreate(false);
-  };
+  // const closeModalCreate = () => {
+  //   setFormCreate(false);
+  // };
 
-  const closeModalEdit = () => {
-    setShowEdit(false);
-  };
+  // const closeModalEdit = () => {
+  //   setShowEdit(false);
+  // };
 
   const handleBackHome = (e) => {
     findAllShoes();
@@ -137,34 +137,34 @@ function Card() {
   //   setFormCreate(false);
   // };
 
-  const handleClickEdit = (id) => {
-    setShowEdit(true);
-    setModalOpen(false);
-    setUpdateShoes({ ...updateShoes, id: id });
-    findById(id);
-  };
+  // const handleClickEdit = (id) => {
+  //   setShowEdit(true);
+  //   setModalOpen(false);
+  //   setUpdateShoes({ ...updateShoes, id: id });
+  //   findById(id);
+  // };
 
-  const handleChangeEdit = (e) => {
-    console.log(updateShoes);
-    setUpdateShoes({ ...updateShoes, [e.target.name]: e.target.value });
-  };
+  // const handleChangeEdit = (e) => {
+  //   console.log(updateShoes);
+  //   setUpdateShoes({ ...updateShoes, [e.target.name]: e.target.value });
+  // };
 
-  const handleEditShoes = () => {
-    const shoes_edited = { ...updateShoes };
-    const id = shoes_edited.id;
+  // const handleEditShoes = () => {
+  //   const shoes_edited = { ...updateShoes };
+  //   const id = shoes_edited.id;
 
-    delete shoes_edited.id;
-    setShowEdit(false);
-    editShoes(id, shoes_edited);
-    console.log(updateShoes);
-    // window.location.reload(true);
-  };
+  //   delete shoes_edited.id;
+  //   setShowEdit(false);
+  //   editShoes(id, shoes_edited);
+  //   console.log(updateShoes);
+  //   // window.location.reload(true);
+  // };
 
-  const handleDeleteShoes = (id) => {
-    console.log(id);
-    deleteShoes(id);
-    window.location.reload(true);
-  };
+  // const handleDeleteShoes = (id) => {
+  //   console.log(id);
+  //   deleteShoes(id);
+  //   window.location.reload(true);
+  // };
 
   return (
     <div className="container_Card">
