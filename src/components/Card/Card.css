@@ -67,9 +67,9 @@
 }
 
 .right-Arrow {
-  position: absolute;
+  position: fixed;
   top: 50%;
-  right: -528px;
+  right: 100px;
   font-size: 3rem;
   color: #000;
   z-index: 10;
@@ -78,9 +78,9 @@
 }
 
 .left-Arrow {
-  position: absolute;
+  position: fixed;
   top: 50%;
-  left: -528px;
+  left: 100px;
   font-size: 3rem;
   color: #000;
   z-index: 10;
@@ -124,30 +124,4 @@
   flex-direction: column;
 }
 
-.btnEdit {
-  display: flex;
-  background-color: #2fbf71;
-  padding: 0.3em;
-  margin-bottom: 0.8em;
-  border-radius: 0.3em;
-  cursor: pointer;
-  transform: scale(1);
-}
 
-.btnEdit:hover {
-  transform: scale(1.1);
-}
-
-.btnDelete {
-  display: flex;
-  text-decoration: none;
-  background-color: #2fbf71;
-  padding: 0.3em;
-  border-radius: 0.3em;
-  cursor: pointer;
-  transform: scale(1);
-}
-
-.btnDelete:hover {
-  transform: scale(1.1);
-}

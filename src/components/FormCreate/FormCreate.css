@@ -6,7 +6,7 @@
 
 .formCreate {
   display: flex;
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
   align-items: center;
   color: antiquewhite;
@@ -33,4 +33,47 @@
 
 .btnCreate:hover {
   transform: scale(1.1);
+}
+
+.btnEdit {
+  display: flex;
+  justify-content: center;
+  background-color: #2fbf71;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  border: none;
+  cursor: pointer;
+  transform: scale(0.9);
+}
+
+.btnEdit:hover {
+  transform: scale(1);
+}
+
+.btnDelete {
+  display: flex;
+  text-decoration: none;
+  background-color: #2fbf71;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.btnDelete:hover {
+  transform: scale(1.1);
+}
+
+.btnOpenEdit {
+  display: flex;
+  text-decoration: none;
+  background-color: #2fbf71;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.btnOpenEdit:hover {
+  transform: scale(1.1)
 }

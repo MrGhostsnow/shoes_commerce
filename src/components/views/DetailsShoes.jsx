@@ -90,7 +90,7 @@ function DetailsShoes() {
                       <BaseButton
                         value={id}
                         type="button"
-                        className="btnEdit"
+                        className="btnOpenEdit"
                         label={<AiFillEdit />}
                         onClick={() => handleClickEdit(id)}
                       />
@@ -119,7 +119,7 @@ function DetailsShoes() {
             price_value={updateShoes.price}
             onClick={handleEditShoes}
             label="Edit"
-            className="btnCreate"
+            className="btnEdit"
           />
         </Modal>
       ) : null}

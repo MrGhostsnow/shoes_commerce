@@ -16,7 +16,7 @@ function CreateShoes() {
 
       async function create(shoes) {
         const newShoes = await ShoesService.create(shoes);
-        // setNewShoes([newShoes]);
+       console.log(newShoes)
       }
 
 
@@ -28,12 +28,6 @@ function CreateShoes() {
       const handleCreateShoes = () => {
         const shoes_create = { ...newShoes };
         create(shoes_create);
-        // setNewShoes({
-        //   description: "",
-        //   image: "",
-        //   price: "",
-        //   name: "",
-        // });
         navigate('/')
       };
 
