@@ -42,7 +42,7 @@ function DetailsShoes() {
 
       const handleClickEdit = () => {
         setShowEdit(true);
-        setUpdateShoes({ ...updateShoes });
+        setUpdateShoes({ ...shoes });
         console.log(updateShoes)
         // findById(id);
       };

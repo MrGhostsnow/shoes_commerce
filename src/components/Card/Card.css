@@ -28,7 +28,7 @@
     padding: 10px;
     width: 450px;
   }
-} 
+}
 
 .image {
   display: flex;
@@ -47,7 +47,7 @@
   .image {
     width: 30%;
   }
-} 
+}
 
 .card_Shoes {
   display: flex;
@@ -74,7 +74,7 @@
     width: 10em;
     padding: 0;
   }
-} 
+}
 
 .slide {
   opacity: 0;
@@ -111,23 +111,21 @@
 
 @media screen and (max-width: 745px) {
   .right-Arrow {
-    font-size: 1.5rem ;
-  }
-  .left-Arrow{
     font-size: 1.5rem;
   }
-} 
+  .left-Arrow {
+    font-size: 1.5rem;
+  }
+}
 
 @media screen and (max-width: 414px) {
   .right-Arrow {
-    right: 3em ;
+    right: 3em;
   }
-  .left-Arrow{
+  .left-Arrow {
     left: 2.5rem;
   }
-} 
-
-
+}
 
 .arrow_Back {
   display: flex;
@@ -161,14 +159,12 @@
 }
 
 @media screen and (max-width: 600px) {
-  .btn_Modal_Create{
-  left: 6em;
+  .btn_Modal_Create {
+    left: 6em;
   }
-} 
+}
 
 .containerBtn {
   display: flex;
   flex-direction: column;
 }
-
-
