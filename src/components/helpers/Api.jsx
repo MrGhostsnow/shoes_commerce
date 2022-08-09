@@ -6,7 +6,7 @@ const ShoesContext = {
 
 const urls ={
   development: 'http://localhost:3001',
-  production: 'http://apifakeshoes.herokuapp.com'
+  production: 'https://apifakeshoes.herokuapp.com'
 }
 
 export const Api = {
