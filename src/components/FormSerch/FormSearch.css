@@ -7,6 +7,12 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 600px) {
+  .container_FormSearch {
+    right: 4.3rem ;
+  }
+} 
+
 .btn_search {
   display: flex;
   justify-content: center;

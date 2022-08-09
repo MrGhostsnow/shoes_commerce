@@ -80,10 +80,9 @@ function Card() {
         </div>
       ) : null}
 
-      <div className="arrows">
+      
         <FaArrowAltCircleLeft className="left-Arrow" onClick={prevSlide} />
-        <FaArrowAltCircleRight className="right-Arrow" onClick={nexSlide} />
-      </div>
+        
       {shoesList.map((shoe, index) => {
         const { id, name, image } = shoe;
 
@@ -104,7 +103,9 @@ function Card() {
           </div>
         );
       })}
+      <FaArrowAltCircleRight className="right-Arrow" onClick={nexSlide} />
     </div>
+    
   );
 }
 
