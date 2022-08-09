@@ -4,12 +4,12 @@ const ShoesContext = {
   shoesById: (id) => `${ShoesContext.shoesEndpoint()}/${id}`, //URL para buscar por ID
 };
 
-const urls ={
-  development: 'http://localhost:3001',
-  production: 'https://apifakeshoes.herokuapp.com'
-}
+// const urls ={
+//   development: 'http://localhost:3001',
+//   production: 'https://apifakeshoes.herokuapp.com'
+// }
 
 export const Api = {
-  baseUrl: 'http://apifakeshoes.herokuapp.com',
+  baseUrl: 'http://localhost:3001',
   ...ShoesContext,
 };
