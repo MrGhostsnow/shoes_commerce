@@ -10,6 +10,6 @@ const urls ={
 }
 
 export const Api = {
-  baseUrl: urls[process.env.NODE_ENV],
+  baseUrl: 'https://apifakeshoes.herokuapp.com',
   ...ShoesContext,
 };

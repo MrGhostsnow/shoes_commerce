@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { ImArrowLeft } from "react-icons/im";
 
 function CreateShoes() {
+  async function findAllShoes() {
+    const shoes = await ShoesService.getList();}
+
   const [newShoes, setNewShoes] = useState({
     description: "",
     image: "",
@@ -28,6 +31,7 @@ function CreateShoes() {
     const shoes_create = { ...newShoes };
     create(shoes_create);
     navigate("/");
+    findAllShoes()
   };
 
   const handleBackHome = () => {
@@ -36,7 +40,7 @@ function CreateShoes() {
 
   return (
     <div>
-      <div className="arrow_Back">
+      <div className="arrowBack">
         <ImArrowLeft onClick={handleBackHome} />
       </div>
       <FormCreate

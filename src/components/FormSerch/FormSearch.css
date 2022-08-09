@@ -1,4 +1,4 @@
-.container_FormSearch {
+.containerFormSearch {
   position: fixed;
   top: 6.5em;
   right: 2.5em;
@@ -8,12 +8,12 @@
 }
 
 @media screen and (max-width: 600px) {
-  .container_FormSearch {
+  .containerFormSearch {
     right: 4.3rem;
   }
 }
 
-.btn_search {
+.btnSearch {
   display: flex;
   justify-content: center;
   padding: 0.2em;
@@ -26,6 +26,6 @@
   transform: scale(1);
 }
 
-.btn_search:hover {
+.btnSearch:hover {
   transform: scale(1.1);
 }

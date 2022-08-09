@@ -1,7 +1,7 @@
 function BaseForm(props) {
   return (
     <div className={props.className}>
-      <label htmlFor={props.id} className="form-label">
+      <label htmlFor={props.id} className="formLabel">
         {props.label}
       </label>
       <input

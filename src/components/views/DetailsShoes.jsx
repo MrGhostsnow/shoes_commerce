@@ -18,6 +18,8 @@ function DetailsShoes() {
 
     // console.log("id",params)
 
+    async function findAllShoes() {
+      const shoes = await ShoesService.getList();}
 
     async function findById(id) {
         const shoe = await ShoesService.getById(id);
@@ -64,7 +66,8 @@ function DetailsShoes() {
         setShowEdit(false);
         editShoes(shoes.id, shoes_edited);
         console.log(updateShoes);
-        navigate('/')
+        navigate('/');
+        findAllShoes()
       };
 
       async function deleteShoes(id) {
@@ -76,6 +79,7 @@ function DetailsShoes() {
         // console.log(id);
         deleteShoes(id);
         navigate('/');
+        findAllShoes()
       };
 
       const handleBackHome = () => {

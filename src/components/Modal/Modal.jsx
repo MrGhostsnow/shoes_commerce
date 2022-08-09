@@ -11,13 +11,13 @@ function Modal(props) {
     <Overlay overlayClick={props.closeModal}>
       <div className="Modal" onClick={handleClick}>
         <span
-          className="Modal__close"
+          className="modalClose"
           onClick={(event) => handleClick(event, true)}
         >
           {" "}
           +{" "}
         </span>
-        <div className="Modal__body">{props.children}</div>
+        <div className="modalBody">{props.children}</div>
       </div>
     </Overlay>
   );

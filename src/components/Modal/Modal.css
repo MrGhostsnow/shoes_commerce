@@ -12,7 +12,7 @@
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
 }
 
-.Modal__close {
+.modalClose {
   font-size: 2em;
   position: absolute;
   width: 30px;
@@ -31,11 +31,11 @@
   z-index: 9999;
 }
 
-.Modal__close:hover {
+.modalClose:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.Modal__body {
+.modalBody {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -16,7 +16,7 @@ function Card() {
 
   async function findAllShoes() {
     const shoes = await ShoesService.getList();
-    setShoesList(shoes);
+    setShoesList([...shoes]);
   }
 
   async function findById(id) {
@@ -64,8 +64,8 @@ function Card() {
   };
 
   return (
-    <div className="container_Card">
-      <Link className="btn_Modal_Create" to={"/create"}>
+    <div className="containerCard">
+      <Link className="btnModalCreate" to={"/create"}>
         <GoPlus />
       </Link>
       <FormSearch
@@ -75,12 +75,12 @@ function Card() {
       />
 
       {backHome ? (
-        <div className="arrow_Back">
+        <div className="arrowBack">
           <ImArrowLeft onClick={handleBackHome} />
         </div>
       ) : null}
 
-      <FaArrowAltCircleLeft className="left-Arrow" onClick={prevSlide} />
+      <FaArrowAltCircleLeft className="leftArrow" onClick={prevSlide} />
 
       {shoesList.map((shoe, index) => {
         const { id, name, image } = shoe;
@@ -89,7 +89,7 @@ function Card() {
           <div className={index === current ? "slide active" : "slide"}>
             {index === current && (
               <Link to={`/details/${id}`}>
-                <div className="card_Shoes">
+                <div className="cardShoes">
                   <div className="item" key={id}>
                     <span>{id}</span>
                     <div className="image">
@@ -102,7 +102,7 @@ function Card() {
           </div>
         );
       })}
-      <FaArrowAltCircleRight className="right-Arrow" onClick={nexSlide} />
+      <FaArrowAltCircleRight className="rightArrow" onClick={nexSlide} />
     </div>
   );
 }

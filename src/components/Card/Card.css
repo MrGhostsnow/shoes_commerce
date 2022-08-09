@@ -3,7 +3,7 @@
 * {
   font-family: "Kanit", sans-serif;
 }
-.container_Card {
+.containerCard {
   position: relative;
   height: 100vh;
   display: flex;
@@ -49,7 +49,7 @@
   }
 }
 
-.card_Shoes {
+.cardShoes {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-.card_Shoes:hover {
+.cardShoes:hover {
   box-shadow: rgba(46, 240, 111, 0.4) 0px 5px, rgba(55, 218, 117, 0.3) 0px 10px,
     rgba(46, 240, 78, 0.2) 0px 15px, rgba(22, 170, 47, 0.1) 0px 20px,
     rgba(46, 228, 10, 0.05) 0px 25px;
@@ -70,7 +70,7 @@
 }
 
 @media screen and (max-width: 745px) {
-  .card_Shoes {
+  .cardShoes {
     width: 10em;
     padding: 0;
   }
@@ -87,7 +87,7 @@
   transform: scale(1.08);
 }
 
-.right-Arrow {
+.rightArrow {
   position: fixed;
   top: 50%;
   right: 100px;
@@ -98,7 +98,7 @@
   user-select: none;
 }
 
-.left-Arrow {
+.leftArrow {
   position: fixed;
   top: 50%;
   left: 100px;
@@ -110,24 +110,24 @@
 }
 
 @media screen and (max-width: 745px) {
-  .right-Arrow {
+  .rightArrow {
     font-size: 1.5rem;
   }
-  .left-Arrow {
+  .leftArrow {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 414px) {
-  .right-Arrow {
+  .rightArrow {
     right: 3em;
   }
-  .left-Arrow {
+  .leftArrow {
     left: 2.5rem;
   }
 }
 
-.arrow_Back {
+.arrowBack {
   display: flex;
   position: fixed;
   background-color: #2fbf71;
@@ -139,7 +139,7 @@
   cursor: pointer;
 }
 
-.btn_Modal_Create {
+.btnModalCreate {
   display: flex;
   color: #000;
   text-decoration: none;
@@ -154,12 +154,12 @@
   transform: scale(1);
 }
 
-.btn_Modal_Create:hover {
+.btnModalCreate:hover {
   transform: scale(1.1);
 }
 
 @media screen and (max-width: 600px) {
-  .btn_Modal_Create {
+  .btnModalCreate {
     left: 6em;
   }
 }
