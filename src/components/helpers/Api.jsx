@@ -10,6 +10,6 @@ const ShoesContext = {
 // }
 
 export const Api = {
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'https://apifakeshoes.herokuapp.com',
   ...ShoesContext,
 };

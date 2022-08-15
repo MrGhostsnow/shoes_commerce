@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <img className="logo" src="./assets/images/logosnowshoes.png" alt="" />
       <Routes>
-        <Route path="/" element={<Card />} />
+        <Route path="/shoes_commerce" element={<Card />} />
         <Route path="/details/:id" element={<DetailsShoes />} />
         <Route path="/create" element={<CreateShoes />} />
       </Routes>

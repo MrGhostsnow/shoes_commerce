@@ -66,7 +66,7 @@ function DetailsShoes() {
         setShowEdit(false);
         editShoes(shoes.id, shoes_edited);
         console.log(updateShoes);
-        navigate('/');
+        navigate('/shoes_commerce');
         findAllShoes()
       };
 
@@ -78,12 +78,12 @@ function DetailsShoes() {
       const handleDeleteShoes = (id) => {
         // console.log(id);
         deleteShoes(id);
-        navigate('/');
+        navigate('/shoes_commerce');
         findAllShoes()
       };
 
       const handleBackHome = () => {
-        navigate('/')
+        navigate('/shoes_commerce')
       }
 
   return (

@@ -30,12 +30,12 @@ function CreateShoes() {
   const handleCreateShoes = () => {
     const shoes_create = { ...newShoes };
     create(shoes_create);
-    navigate("/");
+    navigate("/shoes_commerce");
     findAllShoes()
   };
 
   const handleBackHome = () => {
-    navigate("/");
+    navigate("/shoes_commerce");
   };
 
   return (
